@@ -1,0 +1,29 @@
+version: "3"
+services:
+  spark:
+    image: spark
+    volumes:
+      - ./workdir:/home/spark/workdir
+    ports:
+      - "8080:8080"
+      - "4040:4040"
+      - "7077:7077"
+      - "8888:8888"
+    command: >
+      sh -c "start-master.sh &&
+             jupyter notebook --ip 0.0.0.0 --no-browser &&
+             sh"
+    tty: true
+
+  sparkworker:
+    image: spark
+    volumes:
+      - ./workdir:/home/spark/workdir
+    deploy:
+      replicas: 3
+    ports:
+      - "8081"
+    command: >
+       sh -c "start-slave.sh spark://spark:7077 &&
+             sh"
+    tty: true
