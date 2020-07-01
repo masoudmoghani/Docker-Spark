@@ -20,7 +20,7 @@ docker-compose up --scale sparkworker=3
 
 The Jupyter notebook url/token is printed on the terminal, copy and paste the url in your browser to enter Jupyter environment. To veiw Spark master UI, access `localhost:8080` in your browser. Spark application UI can be accessed from `localhost:4040`.
 
-In your terminal press control+c twice to stop Jupyetr server. Then type bellow command to tear down your cluster.
+In your terminal press control+c twice to stop Jupyter server. Then type bellow command to tear down your cluster.
 
 ```bash
 docker-compose down
@@ -36,7 +36,7 @@ Deploy the cluster to Swarm:
 docker stack deploy --compose-file docker-compose.yml sparkstack
 ```
 
-Inspect the logs of the spark master container to retrieve the jupyetr notebook url/token.
+Inspect the logs of the spark master container to retrieve the jupyter notebook url/token.
 
 ```bash
 docker service logs --raw sparkstack_spark
@@ -52,7 +52,7 @@ docker stack rm sparkstack
 
 We use Docker Desktop's built in Kubernetes environment to deploy our cluster locally. The same docker-compose file is utilized to create a stack on kubernetes.
 
-First make sure the the Kubernetes is enabled on your Docker Desktop. Navigate to Docker preference and make sure there is a green light beside Kubernetes.
+First make sure the the Kubernetes is enabled on your Docker Desktop. Navigate to Docker preference and make sure Kubernetes is running.
 
 ```bash
 DOCKER_STACK_ORCHESTRATOR=kubernetes docker stack deploy --compose-file docker-compose.yml sparkstack
