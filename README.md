@@ -1,6 +1,6 @@
 # Containerized Standalone Spark Cluster
 
-This repo provides containerized Apache Spark, Python 3, and Jupyter notebook environment. The Docker compose file spin up a Spark master node which also runs a jupyter web application, and 3 Spark workers. The number of workers is specified by `replica=3` under `deploy` key as part of the service configuration in the docker-compose.yml file. However, `deploy` key and its options in docker-compose.yml file only work with the the `docker stack deploy` command in Swarm mode and are ignored by `docker compose up`. Therefore, for Docker compose we specify the number of workers with `--scale` flag instead.
+This repo provides containerized Apache Spark, Python 3, and Jupyter notebook environment. The Docker compose file spins up a Spark master node which also runs a jupyter web application, and 3 Spark workers. The number of workers is specified by `replica=3` under `deploy` key as part of the service configuration in the docker-compose.yml file. However, `deploy` key and its options in docker-compose.yml file only work with the the `docker stack deploy` command in Swarm mode and are ignored by `docker compose up`. Therefore, for Docker compose we specify the number of workers with `--scale` flag instead.
 
 First build the "spark" image by running the command bellow:
 
